@@ -1,18 +1,38 @@
-//color variable declarations
-$header-bgcolor: #ffab73;
-$main-bgcolor: #ffd384;
-$footer-bgcolor: #ffaec0;
-
-$para-fontsize: 15px;
-/**browser reset code */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
+@import "reset";
+@import "variables";
 header{
     background: $header-bgcolor;
+}
+
+.btn{
+    background: $header-bgcolor;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-download{
+    @extend.btn;
+    background-color: red;
+}
+.btn-learn{
+    @extend .btn;
+    background-color: green;
+}
+
+@mixin edu ($size, $style){
+    font-size: $size;
+    text-align: $style;
+    margin: 10px 0;
+}
+
+#about p {
+    @include edu(18px, left);
+}
+
+#education p {
+    @include edu(16px, justify);
 }
 
 //nav styling
@@ -45,7 +65,3 @@ footer{
     background: $footer-bgcolor;
 }
 
-#about p{
-    font-size: $para-fontsize;
-
-}
